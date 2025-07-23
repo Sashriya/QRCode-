@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h2 {
+        padding: 15px;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: rgb(41, 28, 41);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3c843f;
+      transform: scale(1.1);
+      transition: .4s;
+    }
+
+    img {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      display: none;
+      margin-left: 95px;
+      width: 150px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>QR Code Generator</h2>
+    <input type="text" placeholder="Enter URL or Text" id="qr">
+    <button onclick="generateQR()">Generate QR</button>
+    <br>
+    <img src="" alt="QR Code" id="qrimg" />
+  </div>
+
+  <script>
+    function generateQR() {
+      const qr = document.getElementById("qr").value;
+      const qrimg = document.getElementById("qrimg");
+      if (qr.trim() !== "") {
+        qrimg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(qr);
+        qrimg.style.display = "block";
+      } else {
+        alert("Please enter a valid URL or text.");
+        qrimg.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
