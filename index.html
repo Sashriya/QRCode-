@@ -71,6 +71,11 @@
       height: 200px;
       width: 200px;
     }
+
+    .img {
+      align-items: center;
+    }
+    
     @media screen and (max-width: 576px) {
       img {
         width: 90%;
@@ -89,7 +94,9 @@
     <input type="text" placeholder="Enter URL or Text" id="qr">
     <button onclick="generateQR()">Generate QR</button>
     <br>
+    <div class="img">
     <img src="" alt="QR Code" id="qrimg" />
+    </div>
   </div>
   <script>
     function generateQR() {
@@ -106,6 +113,7 @@
   </script>
 </body>
 </html>
+
 
 
 
